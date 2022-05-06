@@ -40,8 +40,6 @@ Lets hear from Bobby Richter of Consumer Reports. In this video the two gentleme
 
 [![How to Create Strong Passwords](https://img.youtube.com/vi/ZL6446ShQ08/0.jpg)](https://www.youtube.com/watch?v=ZL6446ShQ08)
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ZL6446ShQ08" frameborder="0" allowfullscreen style="display:block; margin:auto;"></iframe>
-
 One point to make about this video, while it is very good, is that it's very important to ensure that your words are not straight out of a dictionary. Attackers can guess combinations of words in a dictionary very rapidly with tools, so while the password ```thebigbrowndog``` isn't that strong, a mangled version like ```thEbigBr0wndog``` is actually very solid.
 
 Key Takeaways:
