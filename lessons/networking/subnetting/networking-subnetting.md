@@ -1,5 +1,5 @@
-# [Miscellaneous] Password Security Introduction
-*Your password's probably bad, let's make it better.*
+# [Networking] Subnetting
+*If everyone's screaming in one room, you can't hear anyone.*
 
 ![password security](.rsrc/banner.png)
 
@@ -9,16 +9,30 @@
 - Learn how to generate strong passwords and store them securely
 
 # Introduction
-There's usually only one thing between you and the bad guys... one way to access all your important stuff online--passwords! In this lesson you're going to figure out how your current password stands up to an attacker and how you can make it better. After all, only you should be able to post stuff on your Instagram, right? You'll explore how passwords are stored and importantly, how attackers can try to steal them to access your important accounts. After that, we'll look at a few catastrophes that have changed how things are done, specifically to see what can happen if these important rules aren't followed. Finally, we'll take a look at some tools you can use to be as secure as possible online, as well as some of the things big companies do to keep *your* data as safe as possible!
+If you put everyone in a single room the room gets noisy quickly. Networks are like this as well. If you put all devices on one network, the devices will have to process alot of traffic. In a properly subnetted network, traffic can travel a shorter distance to reach its destination and less devices have to process data not intended for them. In this lesson we'll cover the difference between routing and switching, discuss classful as opposed to classless networks and finish with the calculations you need to know for the later. As a disclaimer: we will focus on IPv4 in this lesson.
 
-1. [How strong is YOUR password?](#How-Strong-is-YOUR-Password)
-2. [Storing and attacking passwords](#Storing-and-Attacking-Passwords)
-3. [Designing strong, memorable passwords](#Designing-Strong-Memorable-Passwords)
-4. [The gold standard (password managers)](#The-Gold-Standard-Password-Managers)
-5. [Other authentication: SSO & Federated Identity](#Other-Authentication-SSO--Federated-Identity)
+1. [Routing v. Switching](#routing-v-switching)
+2. [Classful and Classless Subnets](#classful-and-classless-subnets)
+3. [The Math and Lowest Levels](#the-math-and-lowest-levels)
 
 # Lesson
-## How Strong is YOUR Password?
+## Routing v. Switching
+
+OSI Model at a high level, what is what + wireshark screenshot
+
+when routers are required and discussion about putting devices on one switch 
+
+## Classful and Classless Subnets
+
+classful networks and the classess
+
+number systems and address representation of ipv4 decimal v binary, classless are uneven octets
+
+## The Math and Lowest Levels
+
+more discussion about base10 v base2
+
+
 Let's get a baseline. It is fairly straightfoward to calculate how secure your password is and we'll explore this later. For now, we can use an online tool to see how our current password holds up against an attacker. Visit this website and see how long it would take a bad guy with an average laptop to crack YOUR password!
 
 https://www.security.org/how-secure-is-my-password/
