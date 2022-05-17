@@ -31,7 +31,9 @@ https://github.com/howsecureismypassword
 ## Storing and Attacking Passwords
 It would be awesome if we could just write down our password on a piece of paper and put it in a high-security vault like this [one](https://vaultdoorsafebox.en.made-in-china.com/product/jCOnxkmEhqWl/China-Door-Supplier-Stainless-Security-Vault-Panel-Round-Vault-Door.html). But in this cause, if an attacker breaks into the vault, they still get our password. Fortunately, there is a better way! We can put our password through something called a hashing algorithm. A hash is a "one way" algorithm that takes our input and generates a specific output, ensuring that we can't figure out what the input was if we only have the "hash." You can think of this like the ingredients for baking a cake. If you just have the cake, you cant figure out exactly what was used to bake it--if you could there probably wouldn't be many bakerys out there. But at the same time, the same ingredients with the same procedure will always produce the same output. If you have the secret recipie (input/password), you can produce the correct cake (hash/login).
 
-<br><img src=".rsrc/cake.jpg" alt="clock" width="300" style="display:block; margin:auto;"/><br>
+<p align="center">
+  <img src=".rsrc/cake.jpg" alt="clock" width="300"/>
+</p>
 
 When the computer wants to check our login attempt it takes our provided input and hashes it. If the hash of the provided input matches the hash stored in the vault, then we know the same input was provided. Now if the attacker gets into the vault, they can't recover the original password and they have to guess every possible combination to figure out what the original value that resulted in that hash was, giving us time to change it before they figure it out.
 
@@ -42,9 +44,11 @@ Lets use a simple example like a 4 digit pin code. In this case our "password" c
 ## Designing Strong, Memorable Passwords
 Lets hear from Bobby Richter of Consumer Reports. In this video the two gentlemen discuss some tricks to building and remembering strong passwords. The two also talk about password managers.
 
-[![How to Create Strong Passwords](https://img.youtube.com/vi/ZL6446ShQ08/0.jpg)](https://www.youtube.com/watch?v=ZL6446ShQ08)
-
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ZL6446ShQ08" frameborder="0" allowfullscreen style="display:block; margin:auto;"></iframe>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=ZL6446ShQ08">
+    <img src="https://img.youtube.com/vi/ZL6446ShQ08/0.jpg" alt="How to Create Strong Passwords" width="500"/>
+  </a>
+</p>
 
 One point to make about this video, while it is very good, is that it's very important to ensure that your words are not straight out of a dictionary. Attackers can guess combinations of words in a dictionary very rapidly with tools, so while the password ```thebigbrowndog``` isn't that strong, a mangled version like ```thEbigBr0wndog``` is actually very solid.
 
