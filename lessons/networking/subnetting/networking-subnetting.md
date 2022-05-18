@@ -4,126 +4,114 @@
 ![password security](.rsrc/banner.png)
 
 # Objectives
-- Understand what makes a strong password strong
-- Understand how attackers break passwords
-- Learn how to generate strong passwords and store them securely
+- Understand what a subnet mask is
+- Understand why networks are segmented
+- Understand when a router is required/when it's not
 
 # Introduction
-If you put everyone in a single room the room gets noisy quickly. Networks are like this as well. If you put all devices on one network, the devices will have to process alot of traffic. In a properly subnetted network, traffic can travel a shorter distance to reach its destination and less devices have to process data not intended for them. In this lesson we'll cover the difference between routing and switching, discuss classful as opposed to classless networks and finish with the calculations you need to know for the later. As a disclaimer: we will focus on IPv4 in this lesson.
+If you put everyone in a single room the room gets noisy quickly. Networks are like this as well. If you put all devices on one network, the devices will have to process alot of traffic. In a properly subnetted network, traffic can travel a shorter distance to reach its destination and less devices have to process data not intended for them. In this lesson we'll cover the difference between routing and switching, discuss classful as opposed to classless networks and finish with the calculations you need to know for the later. As a disclaimer: we will focus on IPv4 in this lesson as opposed to IPv6.
+
+This stuff is hard and takes people years to wrap their heads around it sometimes; dont stress if it's taking you a minute.
 
 1. [Routing v. Switching](#routing-v-switching)
 2. [Classful and Classless Subnets](#classful-and-classless-subnets)
-3. [The Math and Lowest Levels](#the-math-and-lowest-levels)
+3. [CIDR and Classless](#cidr-and-classless)
+4. [The Math and Lowest Levels](#the-math-and-lowest-levels)
 
 # Lesson
 ## Routing v. Switching
+Once you connect devices with a cable, there are generally either one or two steps required to send information to the target. If you are sending data on your local network, it's most common that you would be, "switching traffic." Consider that you live in a house with your parents and then your grandparents live in a different house. If you want to send a message to your parents you simply walk it over to them, this is like switching. It's generally local and broadly speaking, all the things you connect to the switch can talk to eachother immediately. 
 
-OSI Model at a high level, what is what + wireshark screenshot
+In the other case, you want to send a message to your grandparents. Now we need to get the router involved, the mailman if you will. The mailman picks up your package and determines the fastest way to get it to your grandparents. This is routing. When we are within the house we do not care about routing, but when we leave the house we NEED routing.
 
-when routers are required and discussion about putting devices on one switch 
+This is a slightly higher-level explanation, but if you learn better from videos it might be more helpful:
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=O5jAQwAN8mo">
+    <img src="https://img.youtube.com/vi/O5jAQwAN8mo/0.jpg" alt="The Difference Between Routers and Switches" width="500"/>
+  </a>
+</p>
 
-## Classful and Classless Subnets
+## Classful Subnets
+Looking at the following ip address we see there are four sections, we call these octets and the way its written "dotted decimal notation." If you read the address it makes sense. The digits are decimal (base10) and they are seperated by a dot or period. ```192.168.3.1```. Now consider that we need to be able to say "what network we are on," as well as "what device we are, on that network." If two networks are the same then routers can't destinguish between two different houses. This would be like having two houses with the same address.
 
-classful networks and the classess
+In classful networks, we use entire octets to describe the network and host. Remember that we only have four octets, so we can say that in the above address the network part of the address is either ```192``` or ```192.168``` or ```192.168.3``` whereas the hosts would respectively be either ```168.3.1``` or ```3.1``` or just ```1```. Lets look at classful network breakdowns quickly in the following table.
 
-number systems and address representation of ipv4 decimal v binary, classless are uneven octets
+```192.168.3.1```
+
+| Network   | Host    |
+|-----------|---------|
+| 192       | 168.3.1 |
+| 192.168   | 3.1     |
+| 192.168.3 | 1       |
+
+Maybe you're wondering why we would slice things differently? The answer is that we might need to represent a different number of things. In the first example we can represent 256 different networks because we have one octet and 256 is the total possible combinations in one octet, from 0 -> 255. We have chosen the ```192``` network of the possible 256 networks. Now we can represent any host using the last three octets: ```192.x.x.x```. In the second example we have two octets so we can represent 256*256 possible network ids or 65,535 networks. In that case we have chosen the ```192.168``` network. If you want smaller newtorks you increase the number of octets used for the network and reduce the number used for the hosts. If you want bigger groups of hosts and a fewer number of networks then you allocate more octets to the host.
+
+Now how do the computer and network devices know where to divide up the octets? We tell it using a subnet mask. In this case we mask the octets that are going to be used for the network with 255. So if we want to tell the devices that we are using the first three octets for the network and the last octet for the host, giving us 255^3 networks with 255 hosts on each network, we would use the subnet mask ```255.255.255.0```. If we want to use half the octets for network and half for hosts we would divide it like ```255.255.0.0```. Of course in the last case, if we want to say that the ```192``` part of the address is the network we would use the mask ```255.0.0.0```.
+
+This whole scenerio is called "classful" subnetting because we are using the entire octet to represent parts of the network. The problem is that we only have a few configuration options. We can actually get more granular and divide the octets into halves or even more. This is called classless subnetting, but before we talk about how to actually do this, we need to exapand on the math and talk more about why octets range from 0-255.
 
 ## The Math and Lowest Levels
+An octet is generally represented in base 10, decimal numbers. In the earlier section this is the "dotted decimal" representation used. Computers don't understand this, however. Computers understand base two, ie: ones and zeros. We call these one's and zero's "bits." **An octet is called an octet because it is 8 bits ie the prefix oct.**
 
-more discussion about base10 v base2
+To a computer the address 192.168.3.1 looks like: ```11000000101010000000001100000001```
 
+| 192      | 168      | 3        | 1        |
+|----------|----------|----------|----------|
+| 11000000 | 10101000 | 00000011 | 00000001 |
 
-Let's get a baseline. It is fairly straightfoward to calculate how secure your password is and we'll explore this later. For now, we can use an online tool to see how our current password holds up against an attacker. Visit this website and see how long it would take a bad guy with an average laptop to crack YOUR password!
+A subnet mask "masks" the *network* bits. In the above example, if we want to use the first three octets for network then the mask would be ```255.255.255.0```. This breaks out to look like this for the device: ```1111111111111111111111110000000```
 
-https://www.security.org/how-secure-is-my-password/
+| 255      | 255      | 255      | 255      |
+|----------|----------|----------|----------|
+| 11111111 | 11111111 | 11111111 | 0        |
 
-Now that you've done that, why did you do that! I'm just some guy on the internet, now I have your password!! Just kidding, I wouldn't do that to you... in all seriousness you can see that this tool is actually opensource and maintained on a public site that hosts code like this, called GitHub. If the tool says it would take less than a year to crack your password, while this may be true for average laptops, specalized tools that the bad guys have can crack your password in minutes!! Hopefully your password stood up alright, but if not its time to learn how to make it better so we can keep people out of our stuff!
+## CIDR and Classless
+In the above example of a 255.255.255.0 subnet mask where the first three octets represent the network, there are 24 ones and 8 zeros. We can use a notation called CIDR, or "classless inter-domain routing" to annotate the mask rather than saying out the entire thing. CIDR is simply annotated as the number of ones in the address. So for this subnet mask we would use a slash and then write 24 for 24 bits on (1's). If we want to quickly represent the address with the mask we can write ```192.168.3.1/24```.
 
-Here's the source code for the above tool if you want the proof that I don't have your password: 
-https://github.com/howsecureismypassword
+We've now talked about classful networks where entire octers are "on" or "off," but we can also split an octet and use any number of 1's for the network or host. We can use any value between ```/0``` and ```/32```. When we slice an octet rather than it being on or off, this is called a "classless" subnet. If you see a subnet mask where there are decimal numbers other than 255 or 0, the subnet is classless. Here is an example of a classless subnet mask.
 
-## Storing and Attacking Passwords
-It would be awesome if we could just write down our password on a piece of paper and put it in a high-security vault like this [one](https://vaultdoorsafebox.en.made-in-china.com/product/jCOnxkmEhqWl/China-Door-Supplier-Stainless-Security-Vault-Panel-Round-Vault-Door.html). But in this cause, if an attacker breaks into the vault, they still get our password. Fortunately, there is a better way! We can put our password through something called a hashing algorithm. A hash is a "one way" algorithm that takes our input and generates a specific output, ensuring that we can't figure out what the input was if we only have the "hash." You can think of this like the ingredients for baking a cake. If you just have the cake, you cant figure out exactly what was used to bake it--if you could there probably wouldn't be many bakerys out there. But at the same time, the same ingredients with the same procedure will always produce the same output. If you have the secret recipie (input/password), you can produce the correct cake (hash/login).
+### 192.168.45.21/26
 
-<br><img src=".rsrc/cake.jpg" alt="clock" width="300" style="display:block; margin:auto;"/><br>
+#### IP Address (192.168.45.21)
+| 192      | 168      | 45       | 21       |
+|----------|----------|----------|----------|
+| 11000000 | 10101000 | 00101101 | 00010101 |
 
-When the computer wants to check our login attempt it takes our provided input and hashes it. If the hash of the provided input matches the hash stored in the vault, then we know the same input was provided. Now if the attacker gets into the vault, they can't recover the original password and they have to guess every possible combination to figure out what the original value that resulted in that hash was, giving us time to change it before they figure it out.
+#### Subnet Mask (255.255.255.192)
+| 255      | 255      | 255      | 192      |
+|----------|----------|----------|----------|
+| 11111111 | 11111111 | 11111111 | 11000000 |
 
-Lets use a simple example like a 4 digit pin code. In this case our "password" could be something like 1264, 7311, 1236 etc. **The maximum possible combinations is the number of possible characters in a position**, so in this case the numbers 0-9, **raised to the power of the number of possible characters in the password**, so 4. This makes the calculation: ```(charTypes)^charCount``` == ```10^4``` == ```10,000```. There are usually 95 printable characters on a standard english keyboard, which means an 8 digit password has a possible number of ```6.63e15``` different combinations. This calculation would be done as ```95^8```. Noticed that while the constant number ```95``` is bigger than the exponent ```8```, if we increase both numbers by ```1```, we get many more cobinations by increasing our length (```8```). This is because the length is an exponential value rather than a multiplicative one.
+One final point is to look at how the mask works. There is a logical operation in a computer called an AND. If you provide an AND gate (0,0) (0,1) (1,0) it will return false, or 0. If you provide the gate 1,1 it returns a 1. Computers use AND logic to mask an address.
 
+This looks like the following for the previous example:
+<br>```Addr: 11000000101010000010110100 010101```
+<br>```Mask: 11111111111111111111111111 000000```
+<br>```Netw: 11000000101010000010110100 000000```
 
-
-## Designing Strong, Memorable Passwords
-Lets hear from Bobby Richter of Consumer Reports. In this video the two gentlemen discuss some tricks to building and remembering strong passwords. The two also talk about password managers.
-
-[![How to Create Strong Passwords](https://img.youtube.com/vi/ZL6446ShQ08/0.jpg)](https://www.youtube.com/watch?v=ZL6446ShQ08)
-
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ZL6446ShQ08" frameborder="0" allowfullscreen style="display:block; margin:auto;"></iframe>
-
-One point to make about this video, while it is very good, is that it's very important to ensure that your words are not straight out of a dictionary. Attackers can guess combinations of words in a dictionary very rapidly with tools, so while the password ```thebigbrowndog``` isn't that strong, a mangled version like ```thEbigBr0wndog``` is actually very solid.
-
-Key Takeaways:
-- Don't use personal information, be random
-- Incorporate special characters and numbers
-- Length is more important than anything else
-
-
-## The Gold Standard (Password Managers)
-At the end of the day, if we could remember a 30 character completely randomized password string of characters, that would likely be the least "guessable" password. While most human beings can't do this efficiently, there is a solution that allows us to use a completely random password for every site. The solution is a password manager. Password managers are like a vault where we can put all our sensitive information. Passwords, notes, payment information, etc. The idea is that for most people, if you can compromise an email account you can reset passwords on most accounts and get access to data. Instead of having an email accoutn as the single point of failure, we can use a tool that provides a number of added benefits.
-
-Password management providers inherently focus on security, as while they are a high-value target just like email, the implication is much more immediate. Most of these tools are setup as web browser extensions that will automatically fill passwords in for you. In short, you use a strong memorably password for the password manager, as we discussed above and then the password manager allows you to use long, extremely complex and unique passwords on every individual website.
-
-
-## Other Authentication: SSO & Federated Identity
-The last part of this section is a discussion about moving away from passwords entierly. What if we could login one place and automatically get access to everything? This way there is no need for a password manager at all. Well this is possible and its being done with a technology aptly called Single Sign On (SSO).
-
-If you've ever logged in somewhere using your Google account, you've used single sign on. Federated identity is another closely related technology and both are used to allow people to prove they are who they are in a single place, before accessing things they are supposed to have access to in various places across the internet.
-
-
-# The Real World, Prolific Breaches
-Let's now take a look at why these concepts matter. We will see how RockYou demonstrated the importance of hashing, how some interesting tools came out of the prolific Adobe breach and how these concepts are still troubling even today, with Okta.
-
-## 2009 - RockYou
-In later lessons on password security where we cover storage in more depth as well as cracking passwords, you will start by using something called a wordlist. The first one you will start with, that is used by experts across the industry and is actually included in offensive Linux distributions, is called ```rockyou.txt```. Back in 2009 a company that was building apps for MySpace and Facebook was storing passwords without hashing. Attackers broke into the company and stole a list of every user account and their password. The wordlist mentioned previously is comprised of that data, sorted by the number of times each password was used. There are 14 million entires and the top password ```12345``` was used by 290,729 accounts on RockYou. This breach put RockYou out of business, largely due to the public affairs problems. This is one of the reasons hashing is absolutely critical; if passwords were hashed, it would have been much harder to create this list.
-
-- https://en.wikipedia.org/wiki/RockYou
-- https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-passwords/
-
-## 2013 - Adobe Breach
-What if there was a website where you could figure out if you're credentials have shown up in any breaches? Well it turns out there is and it's a result of 38 million Adobe accounts being compromised back in 2013. Troy Hunt "often did post-breach analysis of user credentials and kept finding the same accounts exposed over and over again." He had the idea to create a website where people could disclose compromised data they found on the darker parts of the internet and you could then put your email in to see if it had shown up in any of those breaches. Many of the HaB team members actually have had their accounts show up on this site. You can even sign up for email notifications. If you get a notification, so long as you have a sufficiently complex password and the organization was hashing passwords, you simply need to change your credentials and you will likely be okay. The haveibeenpwned website linked below has been an enormous contribution to the community over the years.
-
-- https://www.bbc.com/news/technology-24740873
-- https://haveibeenpwned.com/FAQs
-
-## 2022 - Okta
-Okta is a provider of SSO-type identity services for a variety of customers with critical resources on the internet. Just this year Lapsus$, a data extortion group, claimed access to these resources with admin authority. This allowed them to access a variety of Okta customers. High priority resources like authentication remain a key target for attackers, even today in 2022. From the article:
-
->Data extortion groups like Lapsus$ breach victims, but as opposed to encrypting confidential files like a ransomware operator would, these actors steal and hold on to victims' proprietary data, and publish it should their extortion demands not be met.
-
-- https://techcrunch.com/2022/03/28/lapsus-passwords-okta-breach/
-- https://www.bleepingcomputer.com/news/security/okta-investigating-claims-of-customer-data-breach-from-lapsus-group/
+A space was added to show where the "network bits" stop and as you can see only the parts of the address that were masked were added to the network. This allows us to calculate the network id. If you want to go further with this consider how we would find the fist and last possible address in the subnet as well as how we would determine the number of network ids given a classless mask.
 
 # Check YoSelf
-## Q1 - Which of these passwords would take the longest to crack?
-a. ```password123```<br>
-b. ```securityI$C00l```<br>
-c. ```TheBlackDogRanUpMyTree``` <---<br>
-d. ```I'mLearningSecurity```<br>
+## Q1 - Which of these subnets is classless?
+a. ```192.168.1.3/24```<br>
+b. ```172.16.3.1/12``` <---<br>
+c. ```255.255.255.0```<br>
+d. ```255.255.0.0```<br>
 
-## Q2 - Is using personal data like age or a pet's name a good way to create a memorable password?
-a. ```yes```<br>
-b. ```no``` <---<br>
+## Q2 - I have the address 192.168.3.1/24, which of the following addresses can I talk to without a router? (which one is in the same house)
+a. ```192.168.3.25/24``` <---<br>
+b. ```192.168.25.3/24```<br>
+c. ```172.16.3.25/24```
+d. ```172.16.25.3/24```
 
-## Q3 - How do we calculate the max number of guesses (complexity)?
-a. ```(charTypes)^charCount``` <---<br>
-b. ```charCount*timeToCrack```<br>
-c. ```(charCount)^charTypes```<br>
-d. ```timeToCrack*charCount```<br>
+## Q3 - Classless subnets turn entire octets on or off (255/0)?
+a. ```true```<br>
+b. ```false``` <---<br>
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
-1. John the Ripper - https://www.youtube.com/watch?v=XjVYl1Ts6XI
-2. Hashing, Salting and Peppering - https://www.gearbrain.com/password-security-hashing-salting-peppering-2647766220.html
-3. Understanding the Shadow File - https://www.cyberciti.biz/faq/understanding-etcshadow-file/
-4. How SSO Works - https://www.onelogin.com/learn/how-single-sign-on-works
-5. Password Cracking in Depth - https://www.youtube.com/watch?v=7U-RbOKanYs
+1. Subnet calculator - https://jodies.de/ipcalc
+2. More subnet calculations - https://www.geeksforgeeks.org/how-to-calculate-number-of-host-in-a-subnet/password-security-hashing-salting-peppering-2647766220.html
+3. Network address classes - https://docs.oracle.com/cd/E19504-01/802-5753/planning3-78185/index.html
+4. Network address translation - https://www.youtube.com/watch?v=Z4P_Y7fciK0
+5. CCNA - https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html
