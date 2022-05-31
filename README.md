@@ -15,5 +15,5 @@ Curriculum development for HaB education webapp.
 |                             |                                | Linux Network Config     |             | 
 
 ## Core Contributors
-[Nate Singer](nathaniel.singer@shiftcyber.com)
+[Nate Singer](nathaniel.singer@shiftcyber.com)<br>
 [Benson Ku](benson.ku@shiftcyber.com)
