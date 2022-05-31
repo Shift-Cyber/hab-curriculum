@@ -22,13 +22,29 @@ There are a number of things that most people take for granted in life--the way 
 
 
 ## Understanding HTML
+Markdown languages are simply a way to tell the web browser to display a certain portion of the text a certian way. Markdown languages also allow us to display graphical components like images and gifs, or even annotate code such as in the following. This page that you're viewing right now was written in a markdown language and everything that is displayed was either done so with HTML, a style sheet or javascript. Regardless the core is HTML which stands for the Hypertext Transfer Markup Language. There are other markup languages such as XML which stands for the Extensibile Markup Language.The following is an example of some HTML and a demonstration of how it would be displayed to a user in a web browser. The nate.png image is stored in the same directory as the markup file:
+```
+<h1>Nate Singer</h1>
+<img src="nate.png" width=300/>
+<p>This is a bio for Nate...</p>
+```
+<img src=".rsrc/html.png" width=500/>
 
+Other markup languages use different formats but provide roughly the same framework. The premise is that we use a tag like "<h1>" to represent a header and then we can write our header details before an associated closing tag. The other point to note here is that in the img tag we see additional configuration options. These configurations range and are related to the specific tag, but typically we see these used to indiciate a data source or configure styling. Styling can also be configured as class, which will be discussed in the following CSS section.
 
 ## Serving the Website
+Websites are typically served via a routing tool. This can be a variety of different technologies but generally is a single application at the end of the day. Python and NodeJS are commonly used to serve smaller websites while NginX and Apache have historically been used to serve larger websites. There are other technologies like Microsoft IIS that have also been used in the past, but typically you are simply using this tool to interpret HTTP requests and return a webpage (HTML) to the user.
 
+Here you can see the example of using python to serve the page from the previous section to a user.
+```
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+127.0.0.1 - - [30/May/2022 17:18:55] "GET /site.html HTTP/1.1" 200 -
+```
+
+We see a GET request come in for /site.html and then we respond with a HTML code 200 indicating a successful request as well as the site.html page. For more information on what a GET request is and what the response codes are, check out the respective lessons on those topics. As you learn more about web technologies these two specific components will be more and more important.
 
 ## Styling with CSS
-
+In the HTML section we see 
 
 ## Dynamic Actions with JavaScript
 
