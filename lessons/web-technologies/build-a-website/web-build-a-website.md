@@ -6,7 +6,7 @@
 # Objectives
 - Understand what a web browser is
 - Understand what HTML is
-- Understand who does what when you want to play a youtube video
+- Understand what code does what when you want to play a YouTube video
 
 # Introduction
 There are a number of things that most people take for granted in life--the way the internet works is a big one. Its simple, right? You navigate to a website and it appears. It's not actually this simple but it's not that complicated either. In this section we will talk about how the world wide web works and who is responsible for doing what when you navigate to a website. Is HTML a programming language? We'll discuss this devisive question and talk about what a web browser is actually doing. Understanding how websites work will help you stay safe online and will open up massive career oportunities as well.
@@ -19,7 +19,7 @@ There are a number of things that most people take for granted in life--the way 
 
 # Lesson
 ## The Web Browser
-
+What is a web browser? Is it a portal to another demension? All a web browser is, is an application that knows how to interpret code and create a picture for you to see. It understands javascript to animate things and allow you to interact with the page. It also knows how to take a CSS file and use it to style the page with colors, shadows and curved borders among other things. A web browser is essentially a glorified viewing tool for web pages and provides you with a ton of additional features for analyzing whats happening like storage of data and network connections. In additional lessons we'll go deeper into the features available to you and how you can use those features to accomplish some really interesting and useful tasks.
 
 ## Understanding HTML
 Markdown languages are simply a way to tell the web browser to display a certain portion of the text a certian way. Markdown languages also allow us to display graphical components like images and gifs, or even annotate code such as in the following. This page that you're viewing right now was written in a markdown language and everything that is displayed was either done so with HTML, a style sheet or javascript. Regardless the core is HTML which stands for the Hypertext Transfer Markup Language. There are other markup languages such as XML which stands for the Extensibile Markup Language.The following is an example of some HTML and a demonstration of how it would be displayed to a user in a web browser. The nate.png image is stored in the same directory as the markup file:
@@ -33,7 +33,7 @@ Markdown languages are simply a way to tell the web browser to display a certain
 Other markup languages use different formats but provide roughly the same framework. The premise is that we use a tag like "<h1>" to represent a header and then we can write our header details before an associated closing tag. The other point to note here is that in the img tag we see additional configuration options. These configurations range and are related to the specific tag, but typically we see these used to indiciate a data source or configure styling. Styling can also be configured as class, which will be discussed in the following CSS section.
 
 ## Serving the Website
-Websites are typically served via a routing tool. This can be a variety of different technologies but generally is a single application at the end of the day. Python and NodeJS are commonly used to serve smaller websites while NginX and Apache have historically been used to serve larger websites. There are other technologies like Microsoft IIS that have also been used in the past, but typically you are simply using this tool to interpret HTTP requests and return a webpage (HTML) to the user.
+Websites are typically served via a routing tool. This can be a variety of different technologies but generally is a single application. Python and NodeJS are commonly used to serve smaller websites while Nginx and Apache have historically been used to serve larger websites. There are other technologies like Microsoft IIS that have also been used in the past, but typically you are simply using this application to interpret HTTP requests from end users and return a webpage to the user using HTML.
 
 Here you can see the example of using python to serve the page from the previous section to a user.
 ```
@@ -44,105 +44,41 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 We see a GET request come in for /site.html and then we respond with a HTML code 200 indicating a successful request as well as the site.html page. For more information on what a GET request is and what the response codes are, check out the respective lessons on those topics. As you learn more about web technologies these two specific components will be more and more important.
 
 ## Styling with CSS
-In the HTML section we see 
+In the HTML section we see an image being defined using an ```img``` tag. What if we want to give this curved borders. We can use a style component of the page to specify this directly, but we can also create classes in css files to do more detailed things and organize all of our code better. To round edges out in the first example, directly styling an element we would do something like ```<img src=".rsrc/html.png" style="border-radius: 10px;"/>```. If we wanted to use a dedicated css file, we would create a class in a seperate file, include the file and then include the class in our definition. For now we will ignore this case and eventually in the CSS lesson we will get into more detail on this point. The above example will give us the following:
+
+<img src=".rsrc/rounded.png" width=500/>
 
 ## Dynamic Actions with JavaScript
+Lastly, for now at least, we'll round out a discussion of common web file formats with a discussion of JavaScript. Importantly, Java and JavaScript are two distinct languages. There are a bunch of different JavaScript frameworks such as angularJS, vueJS and nodeJS to name a few, but all were built to solve specific problems. Most commonly, javascript is used to do dynamic things in a web page such as create a countdown timer. If you look at the Hack a Bit website you will see some javascript files in use to do these things. For now just know that most dynamic actions are handled by JavaScript. We will cover some of the awesome things you can do with JS as well as some security pitfalls in the JavaScript lesson later on.
 
+# The Real World, How WebSites Work
+Let's now take a look at why these concepts matter. We will walk through an examples of a website in the real world.
 
-
-
-
-## How Strong is YOUR Password?
-Let's get a baseline. It is fairly straightfoward to calculate how secure your password is and we'll explore this later. For now, we can use an online tool to see how our current password holds up against an attacker. Visit this website and see how long it would take a bad guy with an average laptop to crack YOUR password!
-
-https://www.security.org/how-secure-is-my-password/
-
-Now that you've done that, why did you do that! I'm just some guy on the internet, now I have your password!! Just kidding, I wouldn't do that to you... in all seriousness you can see that this tool is actually opensource and maintained on a public site that hosts code like this, called GitHub. If the tool says it would take less than a year to crack your password, while this may be true for average laptops, specalized tools that the bad guys have can crack your password in minutes!! Hopefully your password stood up alright, but if not its time to learn how to make it better so we can keep people out of our stuff!
-
-Here's the source code for the above tool if you want the proof that I don't have your password: 
-https://github.com/howsecureismypassword
-
-## Storing and Attacking Passwords
-It would be awesome if we could just write down our password on a piece of paper and put it in a high-security vault like this [one](https://vaultdoorsafebox.en.made-in-china.com/product/jCOnxkmEhqWl/China-Door-Supplier-Stainless-Security-Vault-Panel-Round-Vault-Door.html). But in this cause, if an attacker breaks into the vault, they still get our password. Fortunately, there is a better way! We can put our password through something called a hashing algorithm. A hash is a "one way" algorithm that takes our input and generates a specific output, ensuring that we can't figure out what the input was if we only have the "hash." You can think of this like the ingredients for baking a cake. If you just have the cake, you cant figure out exactly what was used to bake it--if you could there probably wouldn't be many bakerys out there. But at the same time, the same ingredients with the same procedure will always produce the same output. If you have the secret recipie (input/password), you can produce the correct cake (hash/login).
-
-<p align="center">
-  <img src=".rsrc/cake.jpg" alt="clock" width="300"/>
-</p>
-
-When the computer wants to check our login attempt it takes our provided input and hashes it. If the hash of the provided input matches the hash stored in the vault, then we know the same input was provided. Now if the attacker gets into the vault, they can't recover the original password and they have to guess every possible combination to figure out what the original value that resulted in that hash was, giving us time to change it before they figure it out.
-
-Lets use a simple example like a 4 digit pin code. In this case our "password" could be something like 1264, 7311, 1236 etc. **The maximum possible combinations is the number of possible characters in a position**, so in this case the numbers 0-9, **raised to the power of the number of possible characters in the password**, so 4. This makes the calculation: ```(charTypes)^charCount``` == ```10^4``` == ```10,000```. There are usually 95 printable characters on a standard english keyboard, which means an 8 digit password has a possible number of ```6.63e15``` different combinations. This calculation would be done as ```95^8```. Noticed that while the constant number ```95``` is bigger than the exponent ```8```, if we increase both numbers by ```1```, we get many more cobinations by increasing our length (```8```). This is because the length is an exponential value rather than a multiplicative one.
-
-
-
-## Designing Strong, Memorable Passwords
-Lets hear from Bobby Richter of Consumer Reports. In this video the two gentlemen discuss some tricks to building and remembering strong passwords. The two also talk about password managers.
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=ZL6446ShQ08">
-    <img src="https://img.youtube.com/vi/ZL6446ShQ08/0.jpg" alt="How to Create Strong Passwords" width="500"/>
-  </a>
-</p>
-
-One point to make about this video, while it is very good, is that it's very important to ensure that your words are not straight out of a dictionary. Attackers can guess combinations of words in a dictionary very rapidly with tools, so while the password ```thebigbrowndog``` isn't that strong, a mangled version like ```thEbigBr0wndog``` is actually very solid.
-
-Key Takeaways:
-- Don't use personal information, be random
-- Incorporate special characters and numbers
-- Length is more important than anything else
-
-
-## The Gold Standard (Password Managers)
-At the end of the day, if we could remember a 30 character completely randomized password string of characters, that would likely be the least "guessable" password. While most human beings can't do this efficiently, there is a solution that allows us to use a completely random password for every site. The solution is a password manager. Password managers are like a vault where we can put all our sensitive information. Passwords, notes, payment information, etc. The idea is that for most people, if you can compromise an email account you can reset passwords on most accounts and get access to data. Instead of having an email accoutn as the single point of failure, we can use a tool that provides a number of added benefits.
-
-Password management providers inherently focus on security, as while they are a high-value target just like email, the implication is much more immediate. Most of these tools are setup as web browser extensions that will automatically fill passwords in for you. In short, you use a strong memorably password for the password manager, as we discussed above and then the password manager allows you to use long, extremely complex and unique passwords on every individual website.
-
-
-## Other Authentication: SSO & Federated Identity
-The last part of this section is a discussion about moving away from passwords entierly. What if we could login one place and automatically get access to everything? This way there is no need for a password manager at all. Well this is possible and its being done with a technology aptly called Single Sign On (SSO).
-
-If you've ever logged in somewhere using your Google account, you've used single sign on. Federated identity is another closely related technology and both are used to allow people to prove they are who they are in a single place, before accessing things they are supposed to have access to in various places across the internet.
-
-
-# The Real World, Prolific Breaches
-Let's now take a look at why these concepts matter. We will see how RockYou demonstrated the importance of hashing, how some interesting tools came out of the prolific Adobe breach and how these concepts are still troubling even today, with Okta.
-
-## 2009 - RockYou
-In later lessons on password security where we cover storage in more depth as well as cracking passwords, you will start by using something called a wordlist. The first one you will start with, that is used by experts across the industry and is actually included in offensive Linux distributions, is called ```rockyou.txt```. Back in 2009 a company that was building apps for MySpace and Facebook was storing passwords without hashing. Attackers broke into the company and stole a list of every user account and their password. The wordlist mentioned previously is comprised of that data, sorted by the number of times each password was used. There are 14 million entires and the top password ```12345``` was used by 290,729 accounts on RockYou. This breach put RockYou out of business, largely due to the public affairs problems. This is one of the reasons hashing is absolutely critical; if passwords were hashed, it would have been much harder to create this list.
-
-- https://en.wikipedia.org/wiki/RockYou
-- https://techcrunch.com/2009/12/14/rockyou-hack-security-myspace-facebook-passwords/
-
-## 2013 - Adobe Breach
-What if there was a website where you could figure out if you're credentials have shown up in any breaches? Well it turns out there is and it's a result of 38 million Adobe accounts being compromised back in 2013. Troy Hunt "often did post-breach analysis of user credentials and kept finding the same accounts exposed over and over again." He had the idea to create a website where people could disclose compromised data they found on the darker parts of the internet and you could then put your email in to see if it had shown up in any of those breaches. Many of the HaB team members actually have had their accounts show up on this site. You can even sign up for email notifications. If you get a notification, so long as you have a sufficiently complex password and the organization was hashing passwords, you simply need to change your credentials and you will likely be okay. The haveibeenpwned website linked below has been an enormous contribution to the community over the years.
-
-- https://www.bbc.com/news/technology-24740873
-- https://haveibeenpwned.com/FAQs
-
-## 2022 - Okta
-Okta is a provider of SSO-type identity services for a variety of customers with critical resources on the internet. Just this year Lapsus$, a data extortion group, claimed access to these resources with admin authority. This allowed them to access a variety of Okta customers. High priority resources like authentication remain a key target for attackers, even today in 2022. From the article:
-
->Data extortion groups like Lapsus$ breach victims, but as opposed to encrypting confidential files like a ransomware operator would, these actors steal and hold on to victims' proprietary data, and publish it should their extortion demands not be met.
-
-- https://techcrunch.com/2022/03/28/lapsus-passwords-okta-breach/
-- https://www.bleepingcomputer.com/news/security/okta-investigating-claims-of-customer-data-breach-from-lapsus-group/
+## 2009 - YouTube Video Player
+YouTube is one of the most popular, highly-trafficked websites in the world. Let's walk through what happens when you want to view a video.
+1. You download the page as HTML from www.youtube.com
+2. The HTML tells your web browser to go get the CSS and JS files from the webserver by making requests in the background
+3. The browser styles the page based on the CSS
+4. The browser starts to download the video dynamically using JavaScript; this is why you see the white line loading progress.
 
 # Check YoSelf
-## Q1 - Which of these passwords would take the longest to crack?
-a. ```password123```<br>
-b. ```securityI$C00l```<br>
-c. ```TheBlackDogRanUpMyTree``` <---<br>
-d. ```I'mLearningSecurity```<br>
+## Q1 - What type of resource is most commonly used for styling a webpage?
+a. ```Python Compiled Code (PYC)```<br>
+b. ```JavaScript (JS)```<br>
+c. ```Hypertext Transfer Markup Language (HTML)```<br>
+d. ```Cascading Style Sheets (CSS)``` <---<br>
 
-## Q2 - Is using personal data like age or a pet's name a good way to create a memorable password?
-a. ```yes```<br>
-b. ```no``` <---<br>
+## Q2 - What routing application is commonly used for small temporary websites?
+a. ```Python3 http.server``` <---<br>
+b. ```NginX```<br>
+c. ```Apache```<br>
+d. ```Gunicorn```<br>
 
-## Q3 - How do we calculate the max number of guesses (complexity)?
-a. ```x``` <---<br>
-b. ```charCount*timeToCrack```<br>
-c. ```(charCount)^charTypes```<br>
-d. ```timeToCrack*charCount```<br>
+## Q3 - What type of language is HTML?
+a. ```Interpreted```<br>
+b. ```Markdown``` <---<br>
+c. ```Compiled```<br>
+d. ```Assembly```<br>
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
