@@ -9,7 +9,7 @@ Curriculum development for HaB education webapp.
 | Encoding                    | IO and Logic                   | Operating Systems        | IPv4        | URL Anatomy       | Password Security       |
 | Logic Operations            | Data Representation            | Virtual Machines         | Topologies  | HTTP Requests     |                         |
 | Hashing Checksums and Salts | Code Reuse and Troubleshooting | Linux Navigation         | Subnets     | Web Browser Tools |                         |
-| Primative Cryptosystems     | Problemsolving with Code       | Linux File Structure     | TCP/UDP     | Web Proxies       |                         |
+| Primitive Cryptosystems     | Problemsolving with Code       | Linux File Structure     | TCP/UDP     | Web Proxies       |                         |
 | Cryptosystem Types          | Collaboration and Management   | Linux Package Management | Enumeration |                   |                         |
 |                             |                                | Linux User Permissions   |             | 
 |                             |                                | Linux Network Config     |             | 
