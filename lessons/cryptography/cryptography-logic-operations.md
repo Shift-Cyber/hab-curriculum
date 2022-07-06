@@ -9,7 +9,13 @@
 - Student understands how to read a truth table.
 
 # Introduction
-You often see 0's and 1's floating across computer screens in the movies, but what do these 0's and 1's really mean? 0's and 1's are easy for computers to understand but really hard for humans to understand. In most situations, programming is done using languages like C++, Python, or Java, which have letters and common words that are easier for humans to understand. However, this still gets translated to 0's and 1's so that a computer can understand. In this lesson, we will learn what 0's and 1's represent, and how to do some basic logic operations on these numbers. 
+You often see 0's and 1's floating across computer screens in the movies, but what do these 0's and 1's really mean? 0's and 1's are easy for computers to understand but really hard for humans to understand. Computer chips are made up of billions of transistors, which are small devices that use voltage differences to represent On (1) or Off (0). These transistors which can individually represent either 0 or 1 at any given time, can then be combined to form logic gates. Logic gates are building blocks for digital circuits, and common ones include Not, And, Or, and Xor. Combining multiple logic gates allows for more complex logic, ultimately leading to building a modern computer.  
+
+Looking at computers from another point of view, you may have heard about programming languages such as C++, Python, or Java. If you have ever seen a sample of any of these languages, you would see that they do not simply consist of 0's and 1's. These are instead instructions that use letters and common words that are easier for humans to understand. However, these instructions get eventually get translated to the 0's and 1's, which allows the transistors to process information. 
+
+In addition to being useful for building computers, logic operations are also used as the building blocks for complex cryptographic algorithms. These cryptographic algorithsm, such as RSA, AES, and DES, are used to encrypt and protect our secret data. We will learn more about cryptography in other lessons. 
+
+In this lesson, we will cover what 0's and 1's represent, and how a few basic logic gates work. For a very in-depth explanation of how all the hardware and software works together to make a computer, Nand2Tetris is a great resource (listed at the bottom). 
 
 1. What are 0's and 1's anyway?
 2. What is a logic operation? 
@@ -21,7 +27,7 @@ You often see 0's and 1's floating across computer screens in the movies, but wh
 
 # Lesson
 ## What are 0's and 1's anyway? 
-To keep it simple, 0 is a value that represents False, and 1 is a value that represents True.
+To keep it simple, 0 is a value that represents False or Off, and 1 is a value that represents True or On.
 
 ## What is a logic operation? 
 These values of 0's and 1's can be manipulated with logic operations such as Not, And, Or, and Xor. There are many more, but we will focus on these 4 logic operations in this lesson. These logic operations are also called logic gates. You can think of a logic gate as a mystery box that takes in something, processes the input, and then gives you an output. In the following sections, we will talk about the inputs and outputs each of these logic gates. 
@@ -132,3 +138,4 @@ Check out the following curated resources if you'd like to keep learning about t
 1. Detailed Videos on Logic Gates with Minecraft  - https://www.youtube.com/watch?v=hHCSSscy4BI&list=PL5LiOvrbVo8ksCgm_HTLfwhHRdnx11Gms
 2. Nand2Tetris Course (Chapters 1-3) - https://www.nand2tetris.org/course
 3. Boolean Algebra Game - https://booleangame.com/ 
+4. Transistors - https://www.cs.bu.edu/~best/courses/modules/Transistors2Gates/
