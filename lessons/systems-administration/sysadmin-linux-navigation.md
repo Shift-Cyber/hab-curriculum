@@ -74,24 +74,24 @@ Moving around in Linux using the command line may feel cumbersome and inconvieni
 ## Q1 - Which command was used to create the output in this picture?
 ![navigationQ1](.rsrc/navigationQ1.png)
 
-a. ```ls```<br>
-b. ```ls -l```<br>
-c. ```pwd``` <---<br>
-d. ```cd```<br>
+a. `ls`<br>
+b. `ls -l`<br>
+c. `pwd` <---<br>
+d. `cd`<br>
 
 ## Q2 - Your friend thought he could hide his secret passwords in this folder, but you were able to find them because you used "ls -a" instead of just "ls" when looking in this directory.
 ![navigationQ2](.rsrc/navigationQ2.png)
 
-a. ```true``` <---<br>
-b. ```false```<br>
+a. `true` <---<br>
+b. `false`<br>
 
 ## Q3 - Why is the "cd" command giving an error message instead of changing to the "Projects" directory?
 ![navigationQ3](.rsrc/navigationQ3.png)
 
-a. ```Because `Projects` is actually a file, not a folder.```<br>
-b. ```Because you need to use the `-f` flag with `cd` to tell the program to move into a folder.```<br>
-c. ```Because you are typing the relative path to a folder that doesn't exist in your current directory.  You should type the absolute path instead.```<br>
-d. ```Because you are typing the absolute path to a folder called `Projects in the `/` directory by mistake.  You need get rid of the leading slash.``` <---<br>
+a. Because `Projects` is actually a file, not a folder.<br>
+b. Because you need to use the `-f` flag with `cd` to tell the program to move into a folder.<br>
+c. Because you are typing the relative path to a folder that doesn't exist in your current directory.  You should type the absolute path instead.<br>
+d. Because you are typing the absolute path to a folder called `Projects` in the `/` directory by mistake.  You need get rid of the leading slash. <---<br>
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
