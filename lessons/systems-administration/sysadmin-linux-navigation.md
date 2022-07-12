@@ -64,11 +64,11 @@ There's also another trick to the `ls` command.  When you name a file or folder 
 \*An important thing to know about the commands we covered so far is that in most cases they take into account the permissions of the user running them.  If you don't have permissions to `cd` to another user's folder or `ls` the contents, then you will get an error message.  Don't worry though, this will be covered in Systems Administration: Linux Users and Permissions.
 
 # The Real World, Prolific Breaches
-Moving around in Linux using the command line may feel cumbersome and inconvienient at first, especially if you are used to using the Graphical User Interface (GUI) tools available on many other operating systems.  However, the commands we learned here are some of, if not THE most commonly used Linux commands, so you will certainly improve quickly with practice.  There are also a host of advantages to navigation with the command line.  For example, you may want to write a script that automatically navigates to your home folder, deletes all the files in the `OldProjects` folder, then creates another folder called `NewProjects.`  This simple example is just the tip of the iceberg!  Many skilled developers will write scripts that save thousands of hours for themselves and their company using these techniques!
+Moving around in Linux using the command line may feel cumbersome and inconvienient at first, especially if you are used to using the Graphical User Interface (GUI) tools available on many other operating systems.  However, the commands we learned here are some of, if not THE most commonly used Linux commands, so you will certainly improve quickly with practice.  There are also a host of advantages to navigation with the command line.  For example, you may want to write a script that automatically navigates to your home folder, deletes all the files in the `OldProjects` folder, then creates another folder called `NewProjects`.  This simple example is just the tip of the iceberg!  Many skilled developers will write scripts that save thousands of hours for themselves and their company using these techniques!
 
 ![bashScript Demo](.rsrc/bashScript.png)
 
-\*The `rm` command is short for "remove" and is used to delete files and folders.  The `*` character is called the wildcard character and is used to denote "all" or "everything."  In this case, it's referring to all files in the current folder.  
+\*The `rm` command is short for "remove" and is used to delete files and folders.  The `*` character is called the wildcard character and is used to denote "all" or "everything."  In this case, it's referring to all files in the current folder. `mkdir` stands for "make directory" and does exactly that.  
 
 # Check YoSelf
 ## Q1 - Which command was used to create the output in this picture?
@@ -90,8 +90,8 @@ b. `false`<br>
 
 a. Because `Projects` is actually a file, not a folder.<br>
 b. Because you need to use the `-f` flag with `cd` to tell the program to move into a folder.<br>
-c. Because you are typing the relative path to a folder that doesn't exist in your current directory.  You should type the absolute path instead.<br>
-d. Because you are typing the absolute path to a folder called `Projects` in the `/` directory by mistake.  You need get rid of the leading slash. <---<br>
+c. Because you are typing the `relative path` to a folder that doesn't exist in your current directory.  You should type the `absolute path` instead.<br>
+d. Because you are typing the `absolute path` to a folder called `Projects` in the `/` directory by mistake.  You need get rid of the leading slash. <---<br>
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
