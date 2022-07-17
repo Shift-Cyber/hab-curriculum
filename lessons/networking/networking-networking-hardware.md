@@ -4,18 +4,19 @@
 ![Wi-Fi Router](.rsrc/wifi-router.jpeg)
 
 # Objectives
-- objective 1
-- objective 2
-- objective 3
+- Understand common components of a home router
+- Learn network specific terminology
+- Learn what components could be useful to solve connection requirements
 
 # Introduction
 A total of 5 billion people around the world use the internet today based on report from April 2022. Many people are familar with a device called a router that allows them to connect to the internet. Home routers exist in various different forms and in this lesson you will learn what they represent. 
 
-1. [Home Router Components](#Home Router Components)
-2. [section 2](#section 2)
-3. [section 3](#section 3)
-4. [section 4](#section 4)
-5. [section 5](#section 5)
+1. [Home Router Components](#home-router-components)
+2. [Switch](#switch)
+3. [Router](#router)
+4. [Broadband Connection](#broadband-connection)
+5. [Wireless Access Point](#wireless-access-point)
+6. [Firewall](#firewall)
 
 # Lesson
 ## Home Router Components
@@ -25,6 +26,8 @@ Home routers typically contain following components:
 * Broadband Connection
 * Wireless Access Point (Wi-Fi)
 * Firewall 
+
+It is important to note that these are typical components, but a router can have more or less depending on the specific application of the device. 
 
 ![image](https://user-images.githubusercontent.com/18094862/179405675-5a1c6c1b-4f70-4b8e-89a4-982c522729c4.png)
 
@@ -62,40 +65,25 @@ Wireless Access Point component of the router provides Wi-Fi access to all of th
 ## Firewall 
 Home routers also contain a firewall which appropriately protects devices on your LAN from devices on the internet. If you have ever played games on consoles, some of them require modification of the home router firewall in terms of allowing certain ports through or setting up port forwarding which allows devices on the internet to connect to the console on your local LAN. 
 
-# The Real World, Prolific Breaches
-Why you should care about the real world implications.
-
-## Example 1
-First example text.
-
-## Example 2
-Second example text.
-
-## Example 3
-Third example text.
-
 # Check YoSelf
-## Q1 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<br>
-c. ```answer 3``` <---<br>
-d. ```answer 4```<br>
+## Q1 - What component connects devices on a Local Area Network?
+a. ```firewall```<br>
+b. ```connector```<br>
+c. ```switch``` <---<br>
+d. ```hat```<br>
 
-## Q2 - x?
-a. ```true```<br>
-b. ```false``` <---<br>
+## Q2 - What does WAN stand for?
+a. ```World Wide Web```<br>
+b. ```Wide Area Network``` <---<br>
+c. ```Wireless Area Network```<br>
+d. ```Work Authorization Net```<br>
 
-## Q3 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<---<br>
-c. ```answer 3```<br>
-d. ```answer 4```<br>
+## Q3 - Can a home router function without Ethernet LAN (switch)?
+a. ```Yes```<---<br>
+b. ```No```<br>
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
-1. Resource 1 - www.link.com
-2. Resource 2 - www.link.com
-3. Resource 3 - www.link.com
-4. Resource 4 - www.link.com
-5. Resource 5 - www.link.com
+1. Resource 1 - [What Is a Router](https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html)
+2. Resource 2 - [Types of Broadband Connections](https://www.fcc.gov/general/types-broadband-connections)
 
