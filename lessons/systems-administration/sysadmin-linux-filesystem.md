@@ -1,37 +1,19 @@
-# # [System Administration] Linux File System
-*Subtitle.*
+# [System Administration] Linux File System
+*What is the Linux file system and to make use of it.*
 
 ![SCYCA Logo](.rsrc/git-banner.png)
 
 # Objectives
-- `/`, `/etc/`, `/bin`, `/usr`, `/dev`, `/home`, `/opt`
-- `mkdir`, `rmdir`, `touch`, `rm`
-- `grep`, `find`
+- Linux default directories: `/`, `/etc/`, `/bin`, `/usr`, `/dev`, `/home`, `/opt`
+- Commands to create/remove folders and files: `mkdir`, `rmdir`, `touch`, `rm`
+- Commands to search through filenames and file content for something specific: `grep`, `find`
 
 # Introduction
-Introduction between 100-150 words.
+One of the interesting thing about Linux is that just about everything is treated as a file.  You may hear the phrase, 
 
-1. [section 1](#section 1)
-2. [section 2](#section 2)
-3. [section 3](#section 3)
-4. [section 4](#section 4)# [Category] Title
-*Subtitle.*
+"On a Linux system, everything is a file; if something is not a file, it is a process."
 
-![banner alt text](.rsrc/banner.png)
-
-# Objectives
-- objective 1
-- objective 2
-- objective 3
-
-# Introduction
-Introduction between 100-150 words.
-
-1. [section 1](#section 1)
-2. [section 2](#section 2)
-3. [section 3](#section 3)
-4. [section 4](#section 4)
-5. [section 5](#section 5)
+This even applies to things like directories, which are just files that list other files inside them; hardware drivers, which are `special files` tell the operating system how to interact with physical hardware; and even remote connections, which are represented as files known as `sockets` or `file handles`.
 
 # Lesson
 ## Section 1
@@ -48,117 +30,80 @@ The Linux file system is a tree hierarchy that starts with the folder at the ver
 /tmp  - Temporary files.  The system usually deletes everything in this folder when it is restarted.
 ```
 
-## Section 2
-Section 2 text.
+Remember this is not a complete list of all the Linux directories you might see.  It's not even required that directories be used the way they are described here, but it is common that they be used this way.
 
-<p align="center">
-  <img src=".rsrc/cake.jpg" alt="clock" width="300"/>
-</p>
+## Section 2
+How about if we want to create some of our own files?  Well the simplest way to do that is to use the command, `touch`.  `touch` simply creates an empty file with the name that you supply after the command, like such:  
+
+![touch Demo](.rsrc/touch.png)<br>
+*Remember from the Linux Navigation module that `ls -al` lists all of the files and folders in a directory in long format.*
+
+
+How about creating a folder?  This can easily be done using `mkdir` which means "make directory":
+
+![mkdir Demo](.rsrc/mkdir.png)
+
+Removing a directory can be done using the `rmdir` command, short for "remove directory."  However, this can only be used for empty directories:
+
+![rmdir Demo](.rsrc/rmdir.png)
+
+Finally, removing files can be done with the command `rm.`
+
+![rm Demo](.rsrc/rm.png)
+
+Now consider for a minute how you might remove a directory with many files and sub-directories in it.  Since `rmdir` only works on empty directories, you might think that you would have to individually remove every single file in each sub-directory, then remove the sub-directory, and then repeat until everything is gone.  Fortunately, things don't have to be that tedious.  
+
+The `rm` command is also capable of removing directories and sub-directories and all the files in them in one fell swoop.  This is done using the "-r" flag, which stands for "recursive."  Don't worry if you don't understand what that word means just yet though.  
+
+![rmr Demo](.rsrc/rmr.png)
+
+As seen here, you may get a prompt asking if you're sure you would like to remove a particular file or not.  You can just type `y` or `n` and then press enter to make your decision.
 
 ## Section 3
-Section 3 text.
+Now we know how to create and remove files and folders, next we need to be able to look through the file system quickly to locate specific files or text.  The two programs we'll explore for this are `find` and `grep`.
 
+`find` is a very powerful program that allows you to search on different criteria such as name, file type, last modified time, permissions, and more.  In this module, we'll focus simply on searching for a file by name.  This can be done using `find` with the `-name` flag like so:
 
-## Section 4
-Section 4 text.
+![find Demo](.rsrc/find.png)
 
-## Section 5
-Section 5 text.
+It's important to remember that `find` is case-sensitive by default when searching for files.  If you want the program to ignore case, you can use the `-i` flag together with `name`.
 
+![findi Demo](.rsrc/findi.png)
+
+How about if you want to search the *content* of a file for a particular string of text?  For that we can use `grep`.  `grep` is also a very powerful program with many use-cases.  We can use it to look for the text "ThisIsTheTextToFind" in the file LookHere.txt as follows:
+
+![grep Demo](.rsrc/grep.png)
+
+It's important to know that unlike `find`, `grep` doesn't search sub-directories by default.  In fact it's only going to search the filename that you give it.  If you want it to search many files at once in a director, you can use the `-r` command (again short for recursive) on the directory to search everything in it.  You can also use `-i` to search *insensitive* of case.
+
+![grepir Demo](.rsrc/grepir.png)
 
 # The Real World, Prolific Breaches
-Why you should care about the real world implications.
+Although all distributions of Linux are different in some way, there are reasons that the general structure of the Linux file system is standardized.  One example of this is the default location for programs.  Consider that all of the commands learned here and in previous modules are actually just programs.  `ls`, `mkdir`, `touch`, etc. are programs kept in default directories (either `/bin` or `/usr/bin`) on the file system.  If they *weren't* in those locations, how would you look for them without `ls`?  It would be quite difficult!  For this reason, most Linux distributions keep a list of the usual places to look for binaries/programs, and this list is called the `path`.  Any program that is stored in a directory listed in `path` can be called simply by typing the name of the program on the command line.
 
-## Example 1
-First example text.
-
-## Example 2
-Second example text.
-
-## Example 3
-Third example text.
+![path Demo](.rsrc/path.png)
 
 # Check YoSelf
-## Q1 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<br>
-c. ```answer 3``` <---<br>
-d. ```answer 4```<br>
+## Q1 - Which directory would you look in to find configuration files for the operating system?
+a. `/usr`<br>
+b. `/etc` <---<br>
+c. `/var`<br>
+d. `/dev`<br>
 
-## Q2 - x?
-a. ```true```<br>
-b. ```false``` <---<br>
+## Q2 - Which command can be used to remove a directory if there are files inside it?
+a. `rmdir`<br>
+b. `rm`<br>
+c. `delete`<br>
+d. `rm -r`<---<br>
 
-## Q3 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<---<br>
-c. ```answer 3```<br>
-d. ```answer 4```<br>
+## Q3 - Using the `grep` command with no flags will look in sub-directories by default.
+a. `true`<br>
+b. `false` <---<br>
+
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
-1. Resource 1 - www.link.com
-2. Resource 2 - www.link.com
-3. Resource 3 - www.link.com
-4. Resource 4 - www.link.com
-5. Resource 5 - www.link.comroot
-5. [section 5](#section 5)
-
-# Lesson
-## Section 1
-Section 1 text.
-
-## Section 2
-Section 2 text.
-
-<p align="center">
-  <img src=".rsrc/cake.jpg" alt="clock" width="300"/>
-</p>
-
-## Section 3
-Section 3 text.
-
-
-## Section 4
-Section 4 text.
-
-## Section 5
-Section 5 text.
-
-
-# The Real World, Prolific Breaches
-Why you should care about the real world implications.
-
-## Example 1
-First example text.
-
-## Example 2
-Second example text.
-
-## Example 3
-Third example text.
-
-# Check YoSelf
-## Q1 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<br>
-c. ```answer 3``` <---<br>
-d. ```answer 4```<br>
-
-## Q2 - x?
-a. ```true```<br>
-b. ```false``` <---<br>
-
-## Q3 - x?
-a. ```answer 1```<br>
-b. ```answer 2```<---<br>
-c. ```answer 3```<br>
-d. ```answer 4```<br>
-
-# Keep Going, Next Steps
-Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
-1. Resource 1 - www.link.com
-2. Resource 2 - www.link.com
-3. Resource 3 - www.link.com
-4. Resource 4 - www.link.com
-5. Resource 5 - www.link.com 
+1. Linux File Hierarchy Structure - https://www.geeksforgeeks.org/linux-file-hierarchy-structure/
+2. Linux Directory Structure - https://www.geeksforgeeks.org/linux-directory-structure/
+3. Linux Directory Structure Explained for Beginners - https://linuxhandbook.com/linux-directory-structure/
+4. PLACEHOLDER_FOR_YOUTUBE - PLACEHOLDER_FOR_YOUTUBE
