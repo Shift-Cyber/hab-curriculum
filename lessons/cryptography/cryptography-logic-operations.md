@@ -9,11 +9,9 @@
 - Student understands how to read a truth table.
 
 # Introduction
-You often see 0's and 1's floating across computer screens in the movies, but what do these 0's and 1's really mean? 0's and 1's are easy for computers to understand but really hard for humans to understand. Computer chips are made up of billions of transistors, which are small devices that use voltage differences to represent On (1) or Off (0). These transistors which can individually represent either 0 or 1 at any given time, can then be combined to form logic gates. Logic gates are building blocks for digital circuits, and common ones include Not, And, Or, and Xor. Combining multiple logic gates allows for more complex logic, ultimately leading to building a modern computer.  
+Computers can do incredibly complex things, from simultaneously streaming millions of Netflix videos, to the flight controls of a fighter jet. However, at the most basic level, they are very simple, and they speak a language that uses only two numbers: 1 and 0. Computer chips are made up of billions of transistors, which are small devices that use voltage differences to represent On (1) or Off (0). These transistors which can individually represent either 0 or 1 at any given time, can then be combined to form logic gates. Logic gates are building blocks for digital circuits, and common ones include Not, And, Or, and Xor. Combining multiple logic gates allows for more complex logic, ultimately leading to building a modern computer.  
 
-Looking at computers from another point of view, you may have heard about programming languages such as C++, Python, or Java. If you have ever seen a sample of any of these languages, you would see that they do not simply consist of 0's and 1's. These are instead instructions that use letters and common words that are easier for humans to understand. However, these instructions get eventually get translated to the 0's and 1's, which allows the transistors to process information. 
-
-In addition to being useful for building computers, logic operations are also used as the building blocks for complex cryptographic algorithms. These cryptographic algorithsm, such as RSA, AES, and DES, are used to encrypt and protect our secret data. We will learn more about cryptography in other lessons. 
+In addition to being useful for building computers, logic operations are also used as the building blocks for complex cryptographic algorithms. These cryptographic algorithms, such as RSA, AES, and DES, are used to encrypt and protect our secret data. We will learn more about cryptography in other lessons. 
 
 In this lesson, we will cover what 0's and 1's represent, and how a few basic logic gates work. For a very in-depth explanation of how all the hardware and software works together to make a computer, Nand2Tetris is a great resource (listed at the bottom). 
 
@@ -30,7 +28,7 @@ In this lesson, we will cover what 0's and 1's represent, and how a few basic lo
 To keep it simple, 0 is a value that represents False or Off, and 1 is a value that represents True or On.
 
 ## What is a logic operation? 
-These values of 0's and 1's can be manipulated with logic operations such as Not, And, Or, and Xor. There are many more, but we will focus on these 4 logic operations in this lesson. These logic operations are also called logic gates. You can think of a logic gate as a mystery box that takes in something, processes the input, and then gives you an output. In the following sections, we will talk about the inputs and outputs each of these logic gates. 
+These values of 0's and 1's can be manipulated with logic operations such as Not, And, Or, and Xor. There are many more, but we will focus on these 4 logic operations in this lesson. These logic operations are also called logic gates. You can think of a logic gate as a mystery box that takes in something, processes the input, and then gives you an output. Logic operations are often represented by a truth tables, which contain the inputs of the gate and the corresponding output.
 
 ## Logic Gate - Not
 A **Not** logic gate has 1 input and 1 output. 
