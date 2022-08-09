@@ -70,7 +70,7 @@ It's important to remember that `find` is case-sensitive by default when searchi
 
 ![findi Demo](.rsrc/findi.png)
 
-How about if you want to search the *content* of a file for a particular string of text?  For that we can use `grep`.  `grep` is also a very powerful program with many use-cases.  We can use it to look for the text "ThisIsTheTextToFind" in the file LookHere.txt as follows:
+How about if you want to search the *content* of a file for a particular string of text?  For that we can use `grep`.  `grep` is also a very powerful program with many use-cases.  We can use it to look for the text "Hidden Message" in the file "bigTextFile" as follows:
 
 ![grep Demo](.rsrc/grep.png)
 
@@ -82,6 +82,8 @@ It's important to know that unlike `find`, `grep` doesn't search sub-directories
 Although all distributions of Linux are different in some way, there are reasons that the general structure of the Linux file system is standardized.  One example of this is the default location for programs.  Consider that all of the commands learned here and in previous modules are actually just programs.  `ls`, `mkdir`, `touch`, etc. are programs kept in default directories (either `/bin` or `/usr/bin`) on the file system.  If they *weren't* in those locations, how would you look for them without `ls`?  It would be quite difficult!  For this reason, most Linux distributions keep a list of the usual places to look for binaries/programs, and this list is called the `path`.  Any program that is stored in a directory listed in `path` can be called simply by typing the name of the program on the command line.
 
 ![path Demo](.rsrc/path.png)
+
+This image shows a useful program called `tree` that lists folders, subdirectories, and files in one easy to see diagram.  Note this this program doesn't come on all distributions of Linux, so you may not have it on your system.  We use another program called `which` that simply tells us where to find the program we are calling.  In this case, it tells us that the `tree` program is located at `/usr/bin`.  We can see it easily by using `ls` and we can also look at what folders in the path by calling `echo $PATH`.  The format is a bit strange, but you'll notice that `/usr/bin` is in the list with several other directories separated by colons.
 
 # Check YoSelf
 ## Q1 - Which directory would you look in to find configuration files for the operating system?
@@ -106,4 +108,4 @@ Check out the following curated resources if you'd like to keep learning about t
 1. Linux File Hierarchy Structure - https://www.geeksforgeeks.org/linux-file-hierarchy-structure/
 2. Linux Directory Structure - https://www.geeksforgeeks.org/linux-directory-structure/
 3. Linux Directory Structure Explained for Beginners - https://linuxhandbook.com/linux-directory-structure/
-4. PLACEHOLDER_FOR_YOUTUBE - PLACEHOLDER_FOR_YOUTUBE
+4. The Linux File System explained in 1,233 seconds - https://youtu.be/A3G-3hp88mo
