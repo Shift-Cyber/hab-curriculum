@@ -63,9 +63,11 @@ Since the last group only had three 6-bit groups, we add 1 **=** as padding to m
 
 
 # The Real World, Prolific Breaches
-Placeholder 
+Base64 encoding and decoding is commonly used in web applications. For example, an image can be encoded with base64, and then embedded in HTML. Looking at the sample code snippet below, you can see a string of characters that looks like it is encoded with base64. Notice that the string ends with **==**, which is often a characteristic of base64 encoded characters.  
 
+![Embedding a Base64 Encoded Image into HTML (https://www.w3docs.com/snippets/html/how-to-display-base64-images-in-html.html)](.rsrc/base64-html.png) 
 
+The above code snippet uses the **img** tag in HTML to embed the picture that is encoded with base64. 
 
 # Check YoSelf
 ## Q1 - Manually base64 encode the word **cyber**. 
@@ -82,3 +84,4 @@ Check out the following curated resources if you'd like to keep learning about t
 1. CyberChef  - https://gchq.github.io/CyberChef/
 2. Video about ASCII and Unicode - https://www.youtube.com/watch?v=5aJKKgSEUnY
 3. VIdeo about Base64 - https://www.youtube.com/watch?v=8qkxeZmKmOY
+4. Base64 Encoded Images in HTML = https://www.w3docs.com/snippets/html/how-to-display-base64-images-in-html.html
