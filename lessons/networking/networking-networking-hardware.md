@@ -46,7 +46,7 @@ Depending on the ISP, various different forms broadband connections are used whi
 ![image](https://user-images.githubusercontent.com/18094862/179405602-b95cc6ef-db56-4b31-93b6-8354b759b69c.png)
 
 ## Broadband Connection
-Broadband connection refers to the high-speed internet access technology which the ISP provides. The fastest broadband connection is fiber which is almost always preferable, but if that is not available then connections such as cable modem and DSL are preferred, wireless and satellite are less reliable, but in cases of rural networks they are the only ones available.  
+Broadband connection refers to the high-speed internet access technology which the ISP provides. The fastest broadband connection is fiber (e.g. AT&T, Verizon FIOS) which is almost always preferable, but if that is not available then connections such as cable modem (e.g. Xfinity, Spectrum, Cox) and Digital Subscriber Line (DSL) (e.g. Verizon, CenturyLink) are preferred, wireless (e.g. Rise Broadband) and satellite (e.g. Viasat, HughesNet) are less reliable, but in cases of rural networks they are the only ones available.  
 
 * Cable Modem
   * Cable modem service uses coaxial cables that deliver picture sand sound to TV.
@@ -79,12 +79,17 @@ There are two ways of accomplishing that
 * Blacklisting - Everything is allowed by default and only things in the rule list are blocked
 
 # Check YoSelf
-## Q1 - What can make Wi-Fi signal stronger for a device that is further away from the router?
-- Increasing Power
-- Changing to 2.4 GHz band instead of 5 GHz band 
+## Q1 - What can make Wi-Fi signal stronger for a device that is further away from the router? (2 answers)
+- Increasing Power <---
+- Decreasing Power
+- Changing to 2.4 GHz band instead of 5 GHz band <---
+- Changing to 32 GHz band
 
 ## Q2 - What is the preferred firewall rule method (whitelist/blacklist) and why?
-- Whitelist <--- because it allows minimal access to your network and only specific things are allowed based on the rules
+- Blacklist - because it allows minimal access to your network and only specific things are allowed based on the rules 
+- Whitelist - because it allows maximum access to your network and only specific things are allowed based on the rules
+- Blacklist - because it allows maximum access to your network and only specific things are allowed based on the rules
+- Whitelist - because it allows minimal access to your network and only specific things are allowed based on the rules <---
 
 ## Q3 - Can a home router function without Ethernet LAN (switch)?
 a. ```Yes```<---<br>
