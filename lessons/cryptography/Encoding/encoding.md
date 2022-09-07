@@ -9,7 +9,9 @@
 - Base64
 
 # Introduction
-Encoding refers to converting information into a specific form. For example, character encoding refers to converting text (which is a sequence of characters) into binary representation (0's and 1's) so that a computer can understand the text. Characters include letters and symbols (such as !, @, #, and more). The most common types of encoding include ASCII, unicode, and base64. A tool called [CyberChef](https://gchq.github.io/CyberChef/) can be useful for encoding and decoding messages. 
+Encoding refers to converting information into a specific form. Although encoding and encryption may sound similar, these two terms should not be confused. Encryption refers to converting information into a different form in order to keep information secret, such that decryption would be difficult without special knowledge. Encoding also converts information, but makes no attempt to prevent other people from obtaining the original message. In fact, encoding and decoding are simply opposite processes. Encoding is primarily used to ensure efficient transmission or storage of information. 
+
+The most common types of encoding include ASCII, unicode, and base64. A tool called [CyberChef](https://gchq.github.io/CyberChef/) can be useful for encoding and decoding messages. 
 
 1. ASCII
 2. Unicode 
@@ -25,12 +27,30 @@ In the table above, the numbers 0 through 127 represent all of the standard ASCI
 
 For example, if we want to encode the message **"Hi"** in ASCII in binary form, we would first look up the decimal representation of the uppdercase letter **"H"**, which is **72**, and the decimal representation of the lowercase letter **"i"**, which is **105**. We would then convert **72** and **105** to binary, which would get us the ASCII encoded message of **"1001000 1101001"**. 
 
+We can repeat the same task using [CyberChef](https://gchq.github.io/CyberChef/). Below, the receipt takes the ASCII input of **"Hi"** and converts it into the ASCII encoded message in binary form. The output is the same as the manual encoding from before. 
+
+![Encoding ASCII with CyberChef (https://gchq.github.io/CyberChef/#recipe=Encode_text('US-ASCII%20(7-bit)%20(20127)')To_Binary('Space',7)&input=SGk)](.rsrc/cyberchef-ascii-to-binary.png)
+
+We can also use CyberChef to decode the binary message **"1001000 1101001"** into an ASCII message, which reveals the original message **"Hi"**. 
+
+![Decoding ASCII with CyberChef (https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',7)Decode_text('US-ASCII%20(7-bit)%20(20127)')&input=MTAwMTAwMCAxMTAxMDAx)](.rsrc/cyberchef-binary-to-ascii.png)
+
+
 ## Unicode
 Unicode is a standard for encoding which defines 144,697 characters, including those of modern and historical languages, emojis, and formatting codes. There are three main encoding forms in Unicode called UTF-8, UTF-16, and UTF-32. The numbers represent the number of bits needed per encoded character, meaning that it takes less memory to store UTF-8 encoded characters than UTF-32 encoded characters. UTF-8 is commonly used for HTML, and shares similarities with 8-bit ASCII. The following image shows how the top 50 emojis are encoded. 
 
 ![Unicode Top 50 Emojis (https://unicode-table.com/en/sets/top-emoji/)](.rsrc/unicode-emojis.png)
 
 The website [Unicode Character Table](https://unicode-table.com/en/) allows you to look up common sets of unicode encodings or search for individual characters. 
+
+For example, one of the top 50 emojis is the **Face with Tears of Joy** emoji. Looking at https://unicode-table.com/en/1F602/ shows a lot of additional information about encoding of this emoji. In the table below, it can be seen that the UTF-8 encoding of this emoji is **11110000 10011111 10011000 10000010**. 
+
+![Unicode of Face with Tears of Joy Emoji (https://unicode-table.com/en/1F602/)](.rsrc/emoji-encoding-table.png)
+
+Using CyberChef, we can then decode this back into the original emoji. 
+
+![Decoding UTF-8 Emoji with CyberChef (https://gchq.github.io/CyberChef/#recipe=From_Binary('Space',8)Encode_text('UTF-8%20(65001)')&input=MTExMTAwMDAgMTAwMTExMTEgMTAwMTEwMDAgMTAwMDAwMTA)](.rsrc/cyberchef-emoji.png)
+
 
 ## Base64
 Base64 is an encoding scheme that is commonly used to represent binary data in ASCII text. 64 unique ASCII characters were selected to represent binary data. Characters that are printable and common in most encoding systems were chosen because it is less likely that these characters would be modified while these characters are being sent and received. The following table shows the 64 chosen characters. 
@@ -60,6 +80,14 @@ Since the last group only had three 6-bit groups, we add 1 **=** as padding to m
 
 **SGVsbG8=**
 
+### Base64 Encoding and Decoding with CyberChef
+Although base64 is commonly used for encoding binary data into ASCII text, it is also used to encode other character based messages into ASCII text as well. For example, if you want to base64 encode the message **"base64 encoding!"**, that message would first be encoded into binary using ASCII encoding, and then base64 encoded using the process previously described. The image below shows the message base64 encoded using CyberChef. 
+
+![Base64 Encoding with CyberChef (https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')&input=YmFzZTY0IGVuY29kaW5nIQ)](.rsrc/cyberchef-base64-encode.png) 
+
+The image below then shows the base64 encoded message from the previous step getting decoded using CyberChef. 
+
+![Base64 Encoding with CyberChef (https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',true,false)&input=WW1GelpUWTBJR1Z1WTI5a2FXNW5JUT09)](.rsrc/cyberchef-base64-decode.png) 
 
 
 # The Real World, Prolific Breaches
@@ -70,18 +98,21 @@ Base64 encoding and decoding is commonly used in web applications. For example, 
 The above code snippet uses the **img** tag in HTML to embed the picture that is encoded with base64. 
 
 # Check YoSelf
-## Q1 - Manually base64 encode the word **cyber**. 
+## Q1 - Use base64 to encode the word **cyber** using CyberChef (or manually for an extra challenge). 
 a. Y3liZXI= <---<br> 
 
-## Q2 - Manually encode the word **bot** using 8-bit ASCII. 
+## Q2 - Encode the word **bot** using 8-bit ASCII with CyberChef (or manually for an extra challenge). 
 a. 01100010 01101111 01110100 <---<br>
 
-## Q3 - What is latin capital letter B in unicode?
+## Q3 - What is the unicode number of the latin capital letter B?
 a. U+0042 <---<br> 
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
 1. CyberChef  - https://gchq.github.io/CyberChef/
 2. Video about ASCII and Unicode - https://www.youtube.com/watch?v=5aJKKgSEUnY
-3. VIdeo about Base64 - https://www.youtube.com/watch?v=8qkxeZmKmOY
-4. Base64 Encoded Images in HTML = https://www.w3docs.com/snippets/html/how-to-display-base64-images-in-html.html
+3. Video about Base64 - https://www.youtube.com/watch?v=8qkxeZmKmOY
+4. Base64 Encoding by Hand - https://pthree.org/2011/04/06/convert-text-to-base-64-by-hand/
+5. Base64 Encoded Images in HTML - https://www.w3docs.com/snippets/html/how-to-display-base64-images-in-html.html
+6. Character Encoding - https://www.w3.org/International/questions/qa-what-is-encoding
+7. Why do emojis look different on different devices? - https://slate.com/human-interest/2016/02/emojis-on-apple-google-samsung-can-look-very-different-from-each-other-video.html
