@@ -4,9 +4,9 @@
 ![banner alt text](.rsrc/banner.png)
 
 # Objectives
-- Symmetric vs asymmetric cryptography (public key)
-- Symmetric (AES)
-- Asymmetric (RSA, diffie-hellman, elliptic curve)
+- Student understands the difference between symmetric vs asymmetric cryptography.
+- Student understands the basic mechanisms of AES and recognizes that it is a type of symmetric cryptography.
+- Student understands the basic mechanisms of RSA, Diffie-Hellman, and elliptic curve cryptosystems and that they are types of asymmetric cryptography. 
 
 # Introduction
 In a previous lesson, we talked about several primitive cryptosystems. Now, we will cover modern systems that are in use today. Modern cryptography is often categorized as symmetric or asymmetric cryptography. Symmetric cryptography requires both the sender and receiver of an encrypted message to have a shared private key. In asymmetric cryptography, the sender and receiver each have a public and a private key, and only need to share their public keys in order to exchange encrypted messages. 
