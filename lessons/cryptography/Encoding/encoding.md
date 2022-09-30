@@ -4,12 +4,12 @@
 ![banner alt text](.rsrc/banner.png)
 
 # Objectives
-- ASCII
-- Unicode
-- Base64
+- Understand the definition of encoding.
+- Understand how ASCII, Unicode, and Base64 encoding work. 
+- Understand the differences between encoding and encryption. 
 
 # Introduction
-Encoding refers to converting information into a specific form. Although encoding and encryption may sound similar, these two terms should not be confused. Encryption refers to converting information into a different form in order to keep information secret, such that decryption would be difficult without special knowledge. Encoding also converts information, but makes no attempt to prevent other people from obtaining the original message. In fact, encoding and decoding are simply opposite processes. Encoding is primarily used to ensure efficient transmission or storage of information. 
+Encoding refers to converting information into a specific form. Although encoding and encryption may sound similar, these two terms should not be confused. Encryption refers to converting information into a different form in order to keep information secret, such that decryption would be difficult without special knowledge. Encoding also converts information, but makes no attempt to prevent other people from obtaining the original message. Encoding is primarily used to ensure efficient transmission or storage of information. 
 
 The most common types of encoding include ASCII, unicode, and base64. A tool called [CyberChef](https://gchq.github.io/CyberChef/) can be useful for encoding and decoding messages. 
 
@@ -100,12 +100,19 @@ The above code snippet uses the **img** tag in HTML to embed the picture that is
 # Check YoSelf
 ## Q1 - Use base64 to encode the word **cyber** using CyberChef (or manually for an extra challenge). 
 a. Y3liZXI= <---<br> 
+b. 01100011 01111001 01100010 01100101 01110010 <br>
+c. -.-. -.-- -... . .-. <br>
 
 ## Q2 - Encode the word **bot** using 8-bit ASCII with CyberChef (or manually for an extra challenge). 
-a. 01100010 01101111 01110100 <---<br>
+a. Ym90 <br>
+b. 01100010 01101111 01110100 <---<br>
+c. -... --- - <br>
 
 ## Q3 - What is the unicode number of the latin capital letter B?
-a. U+0042 <---<br> 
+a. Qg== <br>
+b. 2 <br>
+c. U+0062 <br>
+d. U+0042 <---<br> 
 
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
