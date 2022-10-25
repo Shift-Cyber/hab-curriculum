@@ -111,7 +111,7 @@ b. ```false``` <---<br>
 # Keep Going, Next Steps
 Check out the following curated resources if you'd like to keep learning about this topic to dominate hard challenges.
 1. Subnet calculator - https://jodies.de/ipcalc
-2. More subnet calculations - https://www.geeksforgeeks.org/how-to-calculate-number-of-host-in-a-subnet/password-security-hashing-salting-peppering-2647766220.html
+2. More subnet calculations - https://www.geeksforgeeks.org/how-to-calculate-number-of-host-in-a-subnet/
 3. Network address classes - https://docs.oracle.com/cd/E19504-01/802-5753/planning3-78185/index.html
 4. Network address translation - https://www.youtube.com/watch?v=Z4P_Y7fciK0
 5. CCNA - https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html
